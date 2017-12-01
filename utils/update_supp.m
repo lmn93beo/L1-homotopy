@@ -46,7 +46,7 @@ if length(gamma_xh)==M && flag == 1
         idelta = idelta_t; % To set its constraints.
     else
         disp('Fatal error');
-        break;
+        %break;
     end
 else
     if flag == 1
@@ -65,7 +65,7 @@ else
         outx_index = find(gamma_xh==idelta);
         len_gamma = length(gamma_xh);
         if len_gamma == 1
-            break;
+            disp('here');
         end
         gamma_xh = [gamma_xh(1:outx_index-1); gamma_xh(outx_index+1:end); gamma_xh(outx_index)];
         g_old = gamma_xh;
