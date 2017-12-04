@@ -23,8 +23,7 @@ disp(['--------------------',datestr(now),'-------------------------'])
 % load RandomStates
 % 
 rseed = 2012;
-rand('state',rseed);
-randn('state',rseed);
+rng(rseed);
 
 % simulation parameters
 mType = 'randn'; % {'randn','orth','rdct'};
@@ -91,14 +90,6 @@ for sim = 1:maxsim
     err_bpdn = out.error_table;
         
     %% Old code
-    in = [];
-    in.tau = tau;
-    in.delx_mode = delx_mode;
-    in.debias = 0;
-    in.verbose = 0;
-    in.plots = 0;
-    in.record = 1;
-    in.err_fun = err_fun;
     out = l1homotopy_v1(A,y,in);
     xh_old = out.x_out;
     iter_old = out.iter;
